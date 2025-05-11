@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tereza Glazova</title>
+    <link rel="stylesheet" href="https://use.typekit.net/afc4jqr.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Acumin Pro", "Acumin", -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+        
+        @import url("https://use.typekit.net/afc4jqr.css"); /* Acumin Pro from Adobe Fonts */
+        
+        body {
+            background-color: #ffffff;
+            color: #000000;
+            line-height: 1.4;
+            padding: 24px;
+            font-weight: 300;
+            letter-spacing: -0.01em;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        header {
+            padding: 24px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 48px;
+        }
+        
+        .name {
+            font-size: 22px;
+            font-weight: 400;
+            letter-spacing: -0.02em;
+        }
+        
+        .links {
+            display: flex;
+            gap: 24px;
+        }
+        
+        .links a {
+            color: #000;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 300;
+        }
+        
+        .links a:hover {
+            text-decoration: underline;
+        }
+        
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px 32px;
+            margin-bottom: 80px;
+        }
+        
+        .project {
+            cursor: pointer;
+        }
+        
+        .project img {
+            width: 100%;
+            height: auto;
+            display: block;
+            margin-bottom: 12px;
+        }
+        
+        .project-info {
+            display: flex;
+            justify-content: space-between;
+            font-size: 15px;
+            margin-top: 6px;
+        }
+        
+        .project-title {
+            font-weight: 300;
+        }
+        
+        .project-year {
+            color: #666;
+            font-weight: 300;
+        }
+        
+        footer {
+            margin-top: 120px;
+            font-size: 15px;
+            color: #666;
+            padding-bottom: 24px;
+            font-weight: 300;
+        }
+        
+        .project-detail {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.98);
+            z-index: 100;
+            overflow-y: auto;
+            padding: 24px;
+        }
+        
+        .detail-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .detail-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 48px;
+            padding: 24px 0;
+        }
+        
+        .detail-title {
+            font-size: 22px;
+            font-weight: 400;
+            letter-spacing: -0.02em;
+        }
+        
+        .close-button {
+            cursor: pointer;
+            font-size: 22px;
+            font-weight: 300;
+        }
+        
+        .detail-images {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            margin-bottom: 48px;
+        }
+        
+        .detail-images img {
+            width: 100%;
+            height: auto;
+        }
+        
+        .detail-info {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+            margin-bottom: 80px;
+            font-weight: 300;
+            font-size: 15px;
+            line-height: 1.5;
+        }
+        
+        .detail-description {
+            grid-column: 1;
+        }
+        
+        .detail-description p {
+            margin-bottom: 16px;
+        }
+        
+        .detail-metadata {
+            grid-column: 2;
+        }
+        
+        .detail-metadata p {
+            margin-bottom: 12px;
+        }
+        
+        .detail-metadata strong {
+            font-weight: 400;
+        }
+        
+        @media (max-width: 768px) {
+            .project-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .detail-info {
+                grid-template-columns: 1fr;
+            }
+            
+            .detail-metadata {
+                grid-column: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="name">Tereza Glazova</div>
+            <div class="links">
+                <a href="#work">Work</a>
+                <a href="#cv">CV</a>
+                <a href="#blog">Blog</a>
+            </div>
+        </header>
+        
+        <section id="work">
+            <div class="project-grid">
+                <div class="project" data-id="project1">
+                    <img src="/api/placeholder/480/360" alt="Project 1">
+                    <div class="project-info">
+                        <div class="project-title">Project Title 1</div>
+                        <div class="project-year">2025</div>
+                    </div>
+                </div>
+                <div class="project" data-id="project2">
+                    <img src="/api/placeholder/480/360" alt="Project 2">
+                    <div class="project-info">
+                        <div class="project-title">Project Title 2</div>
+                        <div class="project-year">2024</div>
+                    </div>
+                </div>
+                <div class="project" data-id="project3">
+                    <img src="/api/placeholder/480/360" alt="Project 3">
+                    <div class="project-info">
+                        <div class="project-title">Project Title 3</div>
+                        <div class="project-year">2024</div>
+                    </div>
+                </div>
+                <div class="project" data-id="project4">
+                    <img src="/api/placeholder/480/360" alt="Project 4">
+                    <div class="project-info">
+                        <div class="project-title">Project Title 4</div>
+                        <div class="project-year">2023</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <footer>
+            <p>&copy; Tereza Glazova 2025</p>
+        </footer>
+    </div>
+    
+    <!-- Project Detail Templates -->
+    <div id="project1-detail" class="project-detail">
+        <div class="detail-container">
+            <div class="detail-header">
+                <div class="detail-title">Project Title 1</div>
+                <div class="close-button">&times;</div>
+            </div>
+            <div class="detail-images">
+                <img src="/api/placeholder/1000/600" alt="Project 1 Detail 1">
+                <img src="/api/placeholder/1000/600" alt="Project 1 Detail 2">
+                <img src="/api/placeholder/1000/600" alt="Project 1 Detail 3">
+            </div>
+            <div class="detail-info">
+                <div class="detail-description">
+                    <p>A detailed description of Project 1. This is where you would explain the concept, process, and outcomes of your work. This text should give visitors insight into your creative process and the significance of this project.</p>
+                    <p>Additional information about the project, techniques used, challenges overcome, and the final result.</p>
+                </div>
+                <div class="detail-metadata">
+                    <p><strong>Year:</strong> 2025</p>
+                    <p><strong>Client:</strong> Client Name</p>
+                    <p><strong>Role:</strong> Your Role</p>
+                    <p><strong>Collaborators:</strong> Any collaborators</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div id="project2-detail" class="project-detail">
+        <div class="detail-container">
+            <div class="detail-header">
+                <div class="detail-title">Project Title 2</div>
+                <div class="close-button">&times;</div>
+            </div>
+            <div class="detail-images">
+                <img src="/api/placeholder/1000/600" alt="Project 2 Detail 1">
+                <img src="/api/placeholder/1000/600" alt="Project 2 Detail 2">
+            </div>
+            <div class="detail-info">
+                <div class="detail-description">
+                    <p>A detailed description of Project 2. This is where you would explain the concept, process, and outcomes of your work.</p>
+                </div>
+                <div class="detail-metadata">
+                    <p><strong>Year:</strong> 2024</p>
+                    <p><strong>Client:</strong> Client Name</p>
+                    <p><strong>Role:</strong> Your Role</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div id="project3-detail" class="project-detail">
+        <div class="detail-container">
+            <div class="detail-header">
+                <div class="detail-title">Project Title 3</div>
+                <div class="close-button">&times;</div>
+            </div>
+            <div class="detail-images">
+                <img src="/api/placeholder/1000/600" alt="Project 3 Detail 1">
+            </div>
+            <div class="detail-info">
+                <div class="detail-description">
+                    <p>A detailed description of Project 3. This is where you would explain the concept, process, and outcomes of your work.</p>
+                </div>
+                <div class="detail-metadata">
+                    <p><strong>Year:</strong> 2024</p>
+                    <p><strong>Client:</strong> Client Name</p>
+                    <p><strong>Role:</strong> Your Role</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div id="project4-detail" class="project-detail">
+        <div class="detail-container">
+            <div class="detail-header">
+                <div class="detail-title">Project Title 4</div>
+                <div class="close-button">&times;</div>
+            </div>
+            <div class="detail-images">
+                <img src="/api/placeholder/1000/600" alt="Project 4 Detail 1">
+                <img src="/api/placeholder/1000/600" alt="Project 4 Detail 2">
+            </div>
+            <div class="detail-info">
+                <div class="detail-description">
+                    <p>A detailed description of Project 4. This is where you would explain the concept, process, and outcomes of your work.</p>
+                </div>
+                <div class="detail-metadata">
+                    <p><strong>Year:</strong> 2023</p>
+                    <p><strong>Client:</strong> Client Name</p>
+                    <p><strong>Role:</strong> Your Role</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- About Section - Changed to CV Section -->
+    <div id="cv-detail" class="project-detail">
+        <div class="detail-container">
+            <div class="detail-header">
+                <div class="detail-title">CV</div>
+                <div class="close-button">&times;</div>
+            </div>
+            <div class="detail-info">
+                <div class="detail-description">
+                    <p><strong>Education</strong></p>
+                    <p>Degree, Institution, Year</p>
+                    <p>Degree, Institution, Year</p>
+                    <br>
+                    <p><strong>Experience</strong></p>
+                    <p>Position, Company, Year-Year</p>
+                    <p>Position, Company, Year-Year</p>
+                    <br>
+                    <p><strong>Exhibitions</strong></p>
+                    <p>Exhibition Title, Gallery/Location, Year</p>
+                    <p>Exhibition Title, Gallery/Location, Year</p>
+                    <br>
+                    <p><strong>Awards & Recognitions</strong></p>
+                    <p>Award Name, Organization, Year</p>
+                    <p>Award Name, Organization, Year</p>
+                </div>
+                <div class="detail-metadata">
+                    <p><strong>Skills</strong></p>
+                    <p>Skill Category</p>
+                    <p>- Skill 1</p>
+                    <p>- Skill 2</p>
+                    <p>- Skill 3</p>
+                    <br>
+                    <p><strong>Languages</strong></p>
+                    <p>Language 1 - Proficiency Level</p>
+                    <p>Language 2 - Proficiency Level</p>
+                    <br>
+                    <p><strong>Contact</strong></p>
+                    <p>Email: <a href="mailto:your.email@example.com">your.email@example.com</a></p>
+                    <p>LinkedIn: <a href="https://linkedin.com/in/yourusername" target="_blank">Tereza Glazova</a></p>
+                    <p>Instagram: <a href="https://instagram.com/yourusername" target="_blank">@yourusername</a></p>
+                    <br>
+                    <p><a href="#" download>Download Full CV (PDF)</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Contact Section - Changed to Blog Section -->
+    <div id="blog-detail" class="project-detail">
+        <div class="detail-container">
+            <div class="detail-header">
+                <div class="detail-title">Blog</div>
+                <div class="close-button">&times;</div>
+            </div>
+            <div class="detail-info" style="grid-template-columns: 1fr;">
+                <div class="detail-description" style="grid-column: 1 / -1;">
+                    <div class="blog-post">
+                        <h3 style="font-size: 18px; font-weight: 400; margin-bottom: 8px;">Blog Post Title 1</h3>
+                        <p style="font-size: 14px; color: #666; margin-bottom: 16px;">May 5, 2025</p>
+                        <p>This is a sample blog post introduction. Write about your process, thoughts, inspirations, or industry insights. This text should give a brief overview of what the full article contains.</p>
+                        <p style="margin-top: 16px;"><a href="#" style="text-decoration: none; border-bottom: 1px solid #000;">Read more</a></p>
+                    </div>
+                    
+                    <div class="blog-post" style="margin-top: 48px;">
+                        <h3 style="font-size: 18px; font-weight: 400; margin-bottom: 8px;">Blog Post Title 2</h3>
+                        <p style="font-size: 14px; color: #666; margin-bottom: 16px;">April 20, 2025</p>
+                        <p>Another sample blog post introduction. Share your expertise, document your creative journey, or discuss trends in your field. This text should entice readers to explore the full article.</p>
+                        <p style="margin-top: 16px;"><a href="#" style="text-decoration: none; border-bottom: 1px solid #000;">Read more</a></p>
+                    </div>
+                    
+                    <div class="blog-post" style="margin-top: 48px;">
+                        <h3 style="font-size: 18px; font-weight: 400; margin-bottom: 8px;">Blog Post Title 3</h3>
+                        <p style="font-size: 14px; color: #666; margin-bottom: 16px;">March 15, 2025</p>
+                        <p>A third sample blog post introduction. Discuss your projects in depth, explain your methodologies, or reflect on your professional development. This text should provide a glimpse into the full content.</p>
+                        <p style="margin-top: 16px;"><a href="#" style="text-decoration: none; border-bottom: 1px solid #000;">Read more</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // JavaScript to handle project detail views
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get all projects and detail views
+            const projects = document.querySelectorAll('.project');
+            const detailViews = document.querySelectorAll('.project-detail');
+            const closeButtons = document.querySelectorAll('.close-button');
+            const navLinks = document.querySelectorAll('.links a');
+            
+            // Add click event to each project
+            projects.forEach(project => {
+                project.addEventListener('click', function() {
+                    const projectId = this.getAttribute('data-id');
+                    const detailView = document.getElementById(projectId + '-detail');
+                    if (detailView) {
+                        detailView.style.display = 'block';
+                        document.body.style.overflow = 'hidden';
+                    }
+                });
+            });
+            
+            // Add click event to navigation links
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const sectionId = this.getAttribute('href').substring(1);
+                    const detailView = document.getElementById(sectionId + '-detail');
+                    if (detailView) {
+                        detailView.style.display = 'block';
+                        document.body.style.overflow = 'hidden';
+                    }
+                });
+            });
+            
+            // Add click event to close buttons
+            closeButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const detailView = this.closest('.project-detail');
+                    detailView.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                });
+            });
+            
+            // Close detail view when clicking outside the content
+            detailViews.forEach(view => {
+                view.addEventListener('click', function(e) {
+                    if (e.target === this) {
+                        this.style.display = 'none';
+                        document.body.style.overflow = 'auto';
+                    }
+                });
+            });
+            
+            // Close with Escape key
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') {
+                    detailViews.forEach(view => {
+                        view.style.display = 'none';
+                    });
+                    document.body.style.overflow = 'auto';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
